@@ -13,7 +13,6 @@
         <module>Sorting</module>
     </modules>
 
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -43,6 +42,10 @@
     <build>
         <plugins>
             <plugin>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
             </plugin>
