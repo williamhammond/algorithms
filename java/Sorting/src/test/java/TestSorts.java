@@ -10,7 +10,7 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 public class TestSorts {
-  private static final List<Consumer<Comparable[]>> INTEGER_FUNCTIONS =
+  private static final List<Consumer<Comparable[]>> FUNCTIONS =
       List.of(
           Sorts::mergeSort,
           Sorts::selectionSort,
@@ -29,7 +29,7 @@ public class TestSorts {
 
   private static Stream<Arguments> providesSimpleSort() {
     Stream.Builder<Arguments> streamBuilder = Stream.builder();
-    for (Consumer<Comparable[]> function : INTEGER_FUNCTIONS) {
+    for (Consumer<Comparable[]> function : FUNCTIONS) {
       streamBuilder.add(Arguments.of(function, new Integer[] {1, 2, 3}, new Integer[] {1, 2, 3}));
       streamBuilder.add(
           Arguments.of(function, new Character[] {'a', 'b', 'c'}, new Character[] {'a', 'b', 'c'}));
