@@ -11,6 +11,7 @@
 
     <modules>
         <module>Sorting</module>
+        <module>DataStructures</module>
     </modules>
 
     <properties>
