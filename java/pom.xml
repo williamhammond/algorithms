@@ -15,6 +15,7 @@
         <module>Graphs</module>
         <module>Strings</module>
         <module>Memoization</module>
+        <module>Multithreaded</module>
     </modules>
 
     <properties>
