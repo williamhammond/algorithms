@@ -12,6 +12,9 @@
     <modules>
         <module>Sorting</module>
         <module>DataStructures</module>
+        <module>Graphs</module>
+        <module>Strings</module>
+        <module>Memoization</module>
     </modules>
 
     <properties>
