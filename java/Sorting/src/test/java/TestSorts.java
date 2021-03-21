@@ -14,7 +14,8 @@ public class TestSorts {
             List.of(
                     Sorts::selectionSort,
                     Sorts::insertionSort,
-                    Sorts::mergeSort
+                    Sorts::mergeSort,
+                    Sorts::bottomUpMergeSort
             );
 
     @ParameterizedTest

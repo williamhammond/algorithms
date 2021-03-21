@@ -66,6 +66,16 @@ public class Sorts {
         merge(a, aux, low, mid, high);
     }
 
+    public static <T extends Comparable<? super T>> void bottomUpMergeSort(T[] a) {
+        T[] aux = Arrays.copyOf(a, a.length);
+        for (int size = 1; size < a.length; size = size * 2) {
+            int bound = size * 2;
+            for (int low = 0; low < a.length - size; low += bound) {
+                merge(a, aux, low, low + size - 1, Math.min(low + bound - 1, a.length - 1));
+            }
+        }
+    }
+
     private static <T extends Comparable<? super T>> void merge(T[] a, T[] aux, int low, int mid, int high) {
         int i = low;
         int j = mid + 1;
