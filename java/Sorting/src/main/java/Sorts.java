@@ -31,10 +31,21 @@ public class Sorts {
      * @param <T> Comparable
      */
     public static <T extends Comparable<? super T>> void insertionSort(T[] a) {
-        for (int i = 1; i < a.length; i++) {
-            for (int j = i; j > 0 && a[j].compareTo(a[j - 1]) < 0; j--) {
-                swap(a, j, j - 1);
+        // O(N) pass to put smallest element in position to serve as sentinel
+        for (int i = a.length - 1; i > 0; i--) {
+            if (a[i].compareTo(a[i - 1]) < 0) {
+                swap(a, i, i - 1);
             }
+        }
+
+        for (int i = 2; i < a.length; i++) {
+            T value = a[i];
+            int j = i;
+            while (value.compareTo(a[j - 1]) < 0) {
+                a[j] = a[j - 1];
+                j--;
+            }
+            a[j] = value;
         }
     }
 
