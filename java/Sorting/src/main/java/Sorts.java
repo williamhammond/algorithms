@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  *
  */
@@ -50,6 +52,39 @@ public class Sorts {
     }
 
     public static <T extends Comparable<? super T>> void mergeSort(T[] a) {
+        T[] aux = Arrays.copyOf(a, a.length);
+        mergeSortHelper(a, aux, 0, a.length - 1);
+    }
+
+    private static <T extends Comparable<? super T>> void mergeSortHelper(T[] a, T[] aux, int low, int high) {
+        if (high <= low) {
+            return;
+        }
+        int mid = low + (high - low) / 2;
+        mergeSortHelper(a, aux, low, mid);
+        mergeSortHelper(a, aux, mid + 1, high);
+        merge(a, aux, low, mid, high);
+    }
+
+    private static <T extends Comparable<? super T>> void merge(T[] a, T[] aux, int low, int mid, int high) {
+        int i = low;
+        int j = mid + 1;
+
+        if (high + 1 - low >= 0) {
+            System.arraycopy(a, low, aux, low, high + 1 - low);
+        }
+
+        for (int k = low; k <= high; k++) {
+            if (i > mid) {
+                a[k] = aux[j++];
+            } else if (j > high) {
+                a[k] = aux[i++];
+            } else if (aux[j].compareTo(aux[i]) < 0) {
+                a[k] = aux[j++];
+            } else {
+                a[k] = aux[i++];
+            }
+        }
     }
 
     public static <T extends Comparable<? super T>> void quickSort(T[] a) {
