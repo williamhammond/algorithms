@@ -12,7 +12,8 @@ import java.util.stream.Stream;
 public class TestSorts {
     private static final List<Consumer<Comparable[]>> FUNCTIONS =
             List.of(
-                    Sorts::selectionSort
+                    Sorts::selectionSort,
+                    Sorts::insertionSort
             );
 
     @ParameterizedTest
